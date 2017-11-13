@@ -1,10 +1,10 @@
-package com.lorne.service.impl;
+package com.codingapi.service.impl;
 
-import com.lorne.utils.NoTokenConfigUtils;
-import com.lorne.utils.NoVerifyConfigUtils;
-import com.lorne.model.VerificationResult;
-import com.lorne.mq.rpc.TokenService;
-import com.lorne.service.RequestVerificationService;
+import com.codingapi.service.RequestVerificationService;
+import com.codingapi.utils.NoVerifyConfigUtils;
+import com.codingapi.utils.NoTokenConfigUtils;
+import com.codingapi.model.VerificationResult;
+import com.codingapi.mq.rpc.TokenService;
 import com.lorne.core.framework.utils.encode.MD5Util;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;

@@ -1,4 +1,4 @@
-package com.lorne.mq.rpc;
+package com.codingapi.mq.rpc;
 
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;

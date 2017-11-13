@@ -1,7 +1,7 @@
-package com.lorne;
+package com.codingapi;
 
-import com.lorne.filter.PostFilter;
-import com.lorne.filter.PreRequestLogFilter;
+import com.codingapi.filter.PostFilter;
+import com.codingapi.filter.PreRequestLogFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

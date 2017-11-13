@@ -1,4 +1,4 @@
-package com.lorne.utils;
+package com.codingapi.utils;
 
 import com.lorne.core.framework.utils.config.ConfigUtils;
 

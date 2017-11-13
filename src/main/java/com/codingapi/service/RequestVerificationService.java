@@ -1,6 +1,6 @@
-package com.lorne.service;
+package com.codingapi.service;
 
-import com.lorne.model.VerificationResult;
+import com.codingapi.model.VerificationResult;
 
 import javax.servlet.http.HttpServletRequest;
 

@@ -1,4 +1,4 @@
-package com.lorne.model;
+package com.codingapi.model;
 
 import com.alibaba.fastjson.JSONObject;
 import com.lorne.core.framework.Code;

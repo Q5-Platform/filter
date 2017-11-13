@@ -1,10 +1,9 @@
-package com.lorne.filter;
+package com.codingapi.filter;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.lorne.model.Msg;
-import com.lorne.model.Response;
-import com.lorne.utils.NoReturnConfigUtils;
+import com.codingapi.model.Response;
+import com.codingapi.model.Msg;
+import com.codingapi.utils.NoReturnConfigUtils;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import org.apache.commons.io.IOUtils;

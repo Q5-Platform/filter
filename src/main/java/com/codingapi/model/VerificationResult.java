@@ -1,4 +1,4 @@
-package com.lorne.model;
+package com.codingapi.model;
 
 /**
  * Created by lorne on 2017/7/8.
