@@ -1,7 +1,7 @@
-package com.codingapi.filter;
+package com.codingapi.filter.filter;
 
-import com.codingapi.service.RequestVerificationService;
-import com.codingapi.model.VerificationResult;
+import com.codingapi.filter.model.VerificationResult;
+import com.codingapi.filter.service.RequestVerificationService;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import org.slf4j.Logger;

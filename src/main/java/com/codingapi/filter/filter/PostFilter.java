@@ -1,9 +1,9 @@
-package com.codingapi.filter;
+package com.codingapi.filter.filter;
 
 import com.alibaba.fastjson.JSONObject;
-import com.codingapi.model.Response;
-import com.codingapi.model.Msg;
-import com.codingapi.utils.NoReturnConfigUtils;
+import com.codingapi.filter.model.Response;
+import com.codingapi.filter.model.Msg;
+import com.codingapi.filter.utils.NoReturnConfigUtils;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import org.apache.commons.io.IOUtils;

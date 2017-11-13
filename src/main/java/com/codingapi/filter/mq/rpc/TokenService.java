@@ -1,4 +1,4 @@
-package com.codingapi.mq.rpc;
+package com.codingapi.filter.mq.rpc;
 
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;

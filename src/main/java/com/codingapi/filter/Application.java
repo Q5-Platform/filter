@@ -1,7 +1,7 @@
-package com.codingapi;
+package com.codingapi.filter;
 
-import com.codingapi.filter.PostFilter;
-import com.codingapi.filter.PreRequestLogFilter;
+import com.codingapi.filter.filter.PostFilter;
+import com.codingapi.filter.filter.PreRequestLogFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

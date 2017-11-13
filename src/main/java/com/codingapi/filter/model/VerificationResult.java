@@ -1,4 +1,4 @@
-package com.codingapi.model;
+package com.codingapi.filter.model;
 
 /**
  * Created by lorne on 2017/7/8.

@@ -1,6 +1,6 @@
-package com.codingapi.service;
+package com.codingapi.filter.service;
 
-import com.codingapi.model.VerificationResult;
+import com.codingapi.filter.model.VerificationResult;
 
 import javax.servlet.http.HttpServletRequest;
 

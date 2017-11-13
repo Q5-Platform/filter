@@ -1,4 +1,4 @@
-package com.codingapi.model;
+package com.codingapi.filter.model;
 
 
 import com.alibaba.fastjson.JSONObject;
