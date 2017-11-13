@@ -1,5 +1,6 @@
 package com.codingapi.filter.filter;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.codingapi.filter.model.Response;
 import com.codingapi.filter.model.Msg;
@@ -7,6 +8,7 @@ import com.codingapi.filter.utils.NoReturnConfigUtils;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -89,8 +91,14 @@ public class PostFilter extends ZuulFilter {
             if(dataInput != null){
                 try {
                     String data =  IOUtils.toString(dataInput,"UTF-8");
+                    Object object = "";
+                    if(isJson(data)){
+                        object = JSON.parseObject(data);
+                    }else {
+                        object = data;
+                    }
                     res.setCode(40000);
-                    res.setData(data);
+                    res.setData(object);
                     res.setMsg("");
                     msg.setState(1);
                     msg.setRes(res);
@@ -107,6 +115,20 @@ public class PostFilter extends ZuulFilter {
             }
         }
         return null;
+    }
+
+
+
+    public static boolean isJson(String json) {
+        if(!StringUtils.isEmpty(json)){
+            try {
+                JSON.parseObject(json);
+                return true;
+            } catch (Exception e) {
+                return false;
+            }
+        }
+        return  false;
     }
 }
 
