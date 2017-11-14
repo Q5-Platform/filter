@@ -93,7 +93,7 @@ public class PostFilter extends ZuulFilter {
                     String data =  IOUtils.toString(dataInput,"UTF-8");
                     Object object = "";
                     if(isJson(data)){
-                        object = JSON.parseObject(data);
+                        object = JSONObject.parse(data);
                     }else {
                         object = data;
                     }
@@ -122,7 +122,7 @@ public class PostFilter extends ZuulFilter {
     public static boolean isJson(String json) {
         if(!StringUtils.isEmpty(json)){
             try {
-                JSON.parseObject(json);
+                JSONObject.parse(json);
                 return true;
             } catch (Exception e) {
                 return false;
