@@ -1,5 +1,6 @@
 package com.demo.filter.controller;
 
+import com.codingapi.filter.core.annotation.FilterResponse;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoController {
 
     @RequestMapping("/hello")
+    @FilterResponse
     public String hello(){
         return "hello";
     }
