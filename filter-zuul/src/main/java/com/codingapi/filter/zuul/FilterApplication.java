@@ -22,7 +22,4 @@ public class FilterApplication {
         SpringApplication.run(FilterApplication.class, args);
     }
 
-
-
-
 }

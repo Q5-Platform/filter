@@ -11,4 +11,9 @@ public class Constants {
     public static final String defaultResponseHeader =  "filter-drh";
 
 
+    /**
+     * 异常信息头
+     */
+    public static final String exceptionHeader =  "filter-exp";
+
 }

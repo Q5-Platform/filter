@@ -2,10 +2,9 @@ package com.codingapi.filter.zuul.service.impl;
 
 import com.codingapi.filter.zuul.em.VerificationState;
 import com.codingapi.filter.zuul.exception.VerificationException;
+import com.codingapi.filter.zuul.helper.FilterZuulCheckHelper;
 import com.codingapi.filter.zuul.mq.rpc.TokenService;
 import com.codingapi.filter.zuul.service.PreRequestVerificationService;
-import com.codingapi.filter.zuul.utils.NoTokenConfigUtils;
-import com.codingapi.filter.zuul.utils.NoVerifyConfigUtils;
 import com.lorne.core.framework.utils.encode.MD5Util;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
@@ -16,7 +15,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.ServletRequestUtils;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 
 /**
@@ -34,18 +32,15 @@ public class PreRequestVerificationServiceImpl implements PreRequestVerification
     private TokenService tokenService;
 
 
+    @Autowired
+    private FilterZuulCheckHelper filterZuulCheckHelper;
+
     @Override
     public void execute(HttpServletRequest request, String url) throws VerificationException {
 
-
-        if(1==1){
-            return;
-        }
-
         //不需要任何验证的地址
         logger.debug("url:" + url);
-        List<String> list = NoVerifyConfigUtils.getNoVerify();
-        if (list.contains(url)) {
+        if (!filterZuulCheckHelper.needUrlVerifyCheck(url)) {
             return ;
         }
 
@@ -71,8 +66,7 @@ public class PreRequestVerificationServiceImpl implements PreRequestVerification
 
 
     private void tokenCheck(String url,String token) throws VerificationException{
-        List<String> noTokens = NoTokenConfigUtils.getNoToken();
-        if (!noTokens.contains(url)) {
+        if (!filterZuulCheckHelper.needUrlTokenCheck(url)) {
             if (StringUtils.isNotEmpty(token)) {
                 String tokenValue = tokenService.getToken(token);
                 if (StringUtils.isEmpty(tokenValue)) {
