@@ -1,10 +1,10 @@
 package com.codingapi.filter.filter;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.codingapi.filter.model.Response;
 import com.codingapi.filter.model.Msg;
+import com.codingapi.filter.model.Response;
 import com.codingapi.filter.utils.NoReturnConfigUtils;
+import com.lorne.core.framework.exception.ServiceException;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import org.apache.commons.io.IOUtils;
@@ -69,7 +69,7 @@ public class PostFilter extends ZuulFilter {
                 }
                 JSONObject jb =  JSONObject.parseObject(data);
                 Object exception =  jb.get("exception");
-                if("com.lorne.core.framework.exception.ServiceException".equals(exception)){
+                if(ServiceException.class.getName().equals(exception)){
                     error = jb.getString("message");
                 }else{
                     error = jb.getString("exception")+":"+jb.getString("message")+jb.getString("path") ;
