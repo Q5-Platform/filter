@@ -12,6 +12,7 @@
 
     <modules>
         <module>filter-core</module>
+        <module>filter-zuul</module>
         <module>filter-token</module>
         <module>filter-demo</module>
     </modules>
