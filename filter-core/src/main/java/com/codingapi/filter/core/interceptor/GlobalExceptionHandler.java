@@ -2,7 +2,6 @@ package com.codingapi.filter.core.interceptor;
 
 import com.codingapi.filter.core.Constants;
 import com.codingapi.filter.core.model.ExcepModel;
-import com.lorne.core.framework.exception.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -12,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Created by houcunlu on 2017/8/17.
+ * Created by lorne on 2017/8/17.
  */
 @ControllerAdvice
 public class GlobalExceptionHandler {
