@@ -18,6 +18,7 @@
         <java.version>1.7</java.version>
         <maven.compile.source>1.7</maven.compile.source>
         <maven.compile.target>1.7</maven.compile.target>
+        <maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
     </properties>
 
 
@@ -28,12 +29,12 @@
             <groupId>com.codingapi</groupId>
             <artifactId>filter-core</artifactId>
             <version>1.0.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.codingapi</groupId>
-            <artifactId>filter-token</artifactId>
-            <version>1.0.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
 
@@ -60,6 +61,12 @@
             <groupId>com.github.1991wangliang</groupId>
             <artifactId>lorne_core</artifactId>
             <version>1.0.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
     </dependencies>

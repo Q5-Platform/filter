@@ -1,4 +1,4 @@
-package com.codingapi.filter.token.service;
+package com.codingapi.filter.core.token;
 
 /**
  * create by lorne on 2017/12/28

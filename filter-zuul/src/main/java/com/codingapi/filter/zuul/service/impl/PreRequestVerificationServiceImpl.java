@@ -1,9 +1,9 @@
 package com.codingapi.filter.zuul.service.impl;
 
+import com.codingapi.filter.core.token.TokenService;
 import com.codingapi.filter.zuul.em.VerificationState;
 import com.codingapi.filter.zuul.exception.VerificationException;
 import com.codingapi.filter.zuul.helper.FilterZuulCheckHelper;
-import com.codingapi.filter.zuul.mq.rpc.TokenService;
 import com.codingapi.filter.zuul.service.PreRequestVerificationService;
 import com.lorne.core.framework.utils.encode.MD5Util;
 import org.apache.commons.io.IOUtils;
