@@ -1,7 +1,7 @@
 package com.codingapi.filter.token.service.impl;
 
+import com.codingapi.filter.core.token.TokenService;
 import com.codingapi.filter.token.service.RedisServerService;
-import com.codingapi.filter.token.service.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

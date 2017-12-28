@@ -1,6 +1,7 @@
 package com.codingapi.filter.token.controller;
 
-import com.codingapi.filter.token.service.TokenService;
+
+import com.codingapi.filter.core.token.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
