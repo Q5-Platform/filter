@@ -1,5 +1,6 @@
 package com.demo.filter.controller;
 
+import com.codingapi.filter.core.annotation.FilterResponse;
 import com.demo.filter.model.Demo;
 import com.lorne.core.framework.exception.ServiceException;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,10 +16,10 @@ public class DemoController {
     @RequestMapping("/hello")
 //    @FilterResponse
     public Demo hello() throws ServiceException{
-        Demo demo = new Demo();
-        demo.setName("hello");
-        return demo;
+//        Demo demo = new Demo();
+//        demo.setName("hello");
+//        return demo;
 
-//        return "hello";
+       throw new ServiceException("x休息休息");
     }
 }
