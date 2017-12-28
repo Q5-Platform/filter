@@ -1,4 +1,4 @@
-package com.codingapi.filter.zuul.handler;
+package com.codingapi.filter.zuul.handler.self;
 
 import com.alibaba.fastjson.JSONObject;
 import com.codingapi.filter.core.annotation.FilterResponse;
@@ -16,9 +16,9 @@ import org.springframework.http.server.ServerHttpResponse;
  * create by lorne on 2017/12/27
  */
 
-public class ZuulFilterDataResponseHandler implements FilterDataResponseHandler{
+public class SelfZuulFilterDataResponseHandler implements FilterDataResponseHandler{
 
-    private static Logger logger = LoggerFactory.getLogger(ZuulFilterDataResponseHandler.class);
+    private static Logger logger = LoggerFactory.getLogger(SelfZuulFilterDataResponseHandler.class);
 
 
     public boolean supports(MethodParameter returnType, Class converterType) {

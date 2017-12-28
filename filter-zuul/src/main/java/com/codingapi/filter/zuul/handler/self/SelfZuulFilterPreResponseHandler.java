@@ -1,4 +1,4 @@
-package com.codingapi.filter.zuul.handler;
+package com.codingapi.filter.zuul.handler.self;
 
 import com.codingapi.filter.core.interceptor.handler.FilterPreResponseHandler;
 import com.codingapi.filter.zuul.exception.VerificationException;
@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  * Created by lorne on 2017/8/16.
  */
 
-public class ZuulFilterPreResponseHandler implements FilterPreResponseHandler {
+public class SelfZuulFilterPreResponseHandler implements FilterPreResponseHandler {
 
     @Autowired
     private PreRequestVerificationService requestVerificationService;
@@ -23,7 +23,7 @@ public class ZuulFilterPreResponseHandler implements FilterPreResponseHandler {
     private final static String ERROR_MSG_FORMAT =  "{ \"res\": { \"code\": 40010 , \"msg\" : \"%s\"},\"state\": 1}";
 
 
-    private Logger logger = LoggerFactory.getLogger(ZuulFilterPreResponseHandler.class);
+    private Logger logger = LoggerFactory.getLogger(SelfZuulFilterPreResponseHandler.class);
 
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler)throws Exception {

@@ -1,33 +1,31 @@
-package com.demo.filter;
+package com.codingapi.filter.zuul.handler.self;
 
 import com.codingapi.filter.core.interceptor.handler.FilterDataResponseHandler;
 import com.codingapi.filter.core.interceptor.handler.FilterExceptionHandler;
 import com.codingapi.filter.core.interceptor.handler.FilterPreResponseHandler;
-import com.codingapi.filter.zuul.handler.ZuulFilterDataResponseHandler;
-import com.codingapi.filter.zuul.handler.ZuulFilterExceptionHandler;
-import com.codingapi.filter.zuul.handler.ZuulFilterPreResponseHandler;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 /**
+ * 直接引用zuul作为项目使用时，需要在Application上启用该配置
+ * @Import({ FilterHandlerConfiguration.class})
  * create by lorne on 2017/12/28
  */
-@Configuration
-public class FilterConfiguration {
+
+public class SelfFilterHandlerConfiguration {
 
     @Bean
     public FilterExceptionHandler filterExceptionHandler(){
-        return new ZuulFilterExceptionHandler();
+        return new SelfZuulFilterExceptionHandler();
     }
 
     @Bean
     public FilterPreResponseHandler filterPreResponseHandler(){
-        return new ZuulFilterPreResponseHandler();
+        return new SelfZuulFilterPreResponseHandler();
     }
 
 
     @Bean
     public FilterDataResponseHandler filterDataResponseHandler(){
-        return new ZuulFilterDataResponseHandler();
+        return new SelfZuulFilterDataResponseHandler();
     }
 }

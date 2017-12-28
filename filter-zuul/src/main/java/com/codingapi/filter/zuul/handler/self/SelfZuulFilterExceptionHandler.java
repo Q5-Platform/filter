@@ -1,4 +1,4 @@
-package com.codingapi.filter.zuul.handler;
+package com.codingapi.filter.zuul.handler.self;
 
 import com.codingapi.filter.core.Constants;
 import com.codingapi.filter.core.interceptor.handler.FilterExceptionHandler;
@@ -15,9 +15,9 @@ import javax.servlet.http.HttpServletResponse;
  * Created by lorne on 2017/8/17.
  */
 
-public class ZuulFilterExceptionHandler implements FilterExceptionHandler{
+public class SelfZuulFilterExceptionHandler implements FilterExceptionHandler{
 
-    private static Logger logger = LoggerFactory.getLogger(ZuulFilterExceptionHandler.class);
+    private static Logger logger = LoggerFactory.getLogger(SelfZuulFilterExceptionHandler.class);
 
 
     @ExceptionHandler(value = Exception.class)

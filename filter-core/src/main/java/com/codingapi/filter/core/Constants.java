@@ -17,6 +17,5 @@ public class Constants {
     public static final String exceptionHeader =  "filter-exp";
 
 
-    public static boolean openInterceptor = false;
 
 }
