@@ -28,9 +28,33 @@
     <dependencies>
 
 
+        <!--<dependency>-->
+            <!--<groupId>com.codingapi</groupId>-->
+            <!--<artifactId>filter-core</artifactId>-->
+            <!--<version>1.0.0</version>-->
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<groupId>org.slf4j</groupId>-->
+                    <!--<artifactId>*</artifactId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
+        <!--</dependency>-->
+
         <dependency>
             <groupId>com.codingapi</groupId>
-            <artifactId>filter-core</artifactId>
+            <artifactId>filter-zuul</artifactId>
+            <version>1.0.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.codingapi</groupId>
+            <artifactId>filter-token</artifactId>
             <version>1.0.0</version>
             <exclusions>
                 <exclusion>

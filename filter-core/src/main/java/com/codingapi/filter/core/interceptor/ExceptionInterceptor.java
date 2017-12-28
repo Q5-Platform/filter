@@ -22,29 +22,35 @@ public class ExceptionInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler)throws Exception {
 
-        HandlerMethod handlerMethod = (HandlerMethod) handler;
+        if(Constants.openInterceptor) {
 
-        if(handlerMethod!=null) {
-            if(handlerMethod.getMethod()!=null){
 
-                FilterResponse filterResponse =  handlerMethod.getMethod().getAnnotation(FilterResponse.class);
-                if(filterResponse==null){
+            HandlerMethod handlerMethod = (HandlerMethod) handler;
 
-                    filterResponse = handlerMethod.getMethod().getDeclaringClass().getAnnotation(FilterResponse.class);
-                }
+            if (handlerMethod != null) {
+                if (handlerMethod.getMethod() != null) {
 
-                logger.debug("filterResponse->" + filterResponse);
+                    FilterResponse filterResponse = handlerMethod.getMethod().getAnnotation(FilterResponse.class);
+                    if (filterResponse == null) {
 
-                if(filterResponse!=null){
+                        filterResponse = handlerMethod.getMethod().getDeclaringClass().getAnnotation(FilterResponse.class);
+                    }
 
-                    switch (filterResponse.type()){
-                        case defaultFilter:{
-                            request.setAttribute(Constants.defaultResponseHeader,Constants.defaultResponseHeader);
+                    logger.debug("filterResponse->" + filterResponse);
+
+                    if (filterResponse != null) {
+
+                        switch (filterResponse.type()) {
+                            case defaultFilter: {
+                                request.setAttribute(Constants.defaultResponseHeader, Constants.defaultResponseHeader);
+                            }
                         }
                     }
-                }
 
+                }
             }
+
+            return true;
         }
 
         return true;

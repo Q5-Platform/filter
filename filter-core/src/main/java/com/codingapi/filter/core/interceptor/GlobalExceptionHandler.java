@@ -22,21 +22,23 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = Exception.class)
     public void  exceptionHandler(HttpServletRequest request, HttpServletResponse response,
                                   Object handler, Exception e) throws Exception {
+        if(Constants.openInterceptor) {
 
-        logger.debug("getAttribute -> "+request.getAttribute(Constants.defaultResponseHeader));
-        if(Constants.defaultResponseHeader.equals(request.getAttribute(Constants.defaultResponseHeader))){
-            response.setHeader(Constants.defaultResponseHeader,Constants.defaultResponseHeader);
-        }else{
-            logger.debug(e.getMessage());
-            String localizedMessage =  e.getLocalizedMessage();
-            String msg = e.getMessage();
-            String className = e.getClass().getName();
-            ExcepModel excepModel = new ExcepModel(localizedMessage,msg,className);
-            response.setHeader(Constants.exceptionHeader,excepModel.toJsonString());
+            logger.debug("getAttribute -> " + request.getAttribute(Constants.defaultResponseHeader));
+            if (Constants.defaultResponseHeader.equals(request.getAttribute(Constants.defaultResponseHeader))) {
+                response.setHeader(Constants.defaultResponseHeader, Constants.defaultResponseHeader);
+            } else {
+                logger.debug(e.getMessage());
+                String localizedMessage = e.getLocalizedMessage();
+                String msg = e.getMessage();
+                String className = e.getClass().getName();
+                ExcepModel excepModel = new ExcepModel(localizedMessage, msg, className);
+                response.setHeader(Constants.exceptionHeader, excepModel.toJsonString());
+            }
+            logger.debug("exceptionHandler->" + e + ",handler->" + handler);
+
+            throw e;
         }
-        logger.debug("exceptionHandler->"+e+",handler->"+handler);
-
-        throw e;
     }
 
 

@@ -21,7 +21,10 @@ public class DataResponseBodyAdvice implements ResponseBodyAdvice{
 
 
     public boolean supports(MethodParameter returnType, Class converterType) {
-        return true;
+        if(Constants.openInterceptor) {
+            return true;
+        }
+        return false;
     }
 
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
