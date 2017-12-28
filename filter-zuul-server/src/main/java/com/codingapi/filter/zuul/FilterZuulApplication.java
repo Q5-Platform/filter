@@ -16,10 +16,10 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 @EnableEurekaClient
 @EnableZuulProxy
 @EnableFeignClients
-public class FilterApplication {
+public class FilterZuulApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(FilterApplication.class, args);
+        SpringApplication.run(FilterZuulApplication.class, args);
     }
 
 }
