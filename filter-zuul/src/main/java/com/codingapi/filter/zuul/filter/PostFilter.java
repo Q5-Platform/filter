@@ -5,6 +5,7 @@ import com.codingapi.filter.core.Constants;
 import com.codingapi.filter.core.model.ExcepModel;
 import com.codingapi.filter.zuul.model.Msg;
 import com.codingapi.filter.zuul.model.Response;
+import com.lorne.core.framework.utils.encode.Base64Utils;
 import com.netflix.util.Pair;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
@@ -58,7 +59,9 @@ public class PostFilter extends ZuulFilter {
                 return null;
             }
             if(Constants.exceptionHeader.equals(pair.first())){
-                excpMsg = pair.second();
+                if(StringUtils.isNotEmpty(pair.second())) {
+                    excpMsg = new String(Base64Utils.decode(pair.second()));
+                }
             }
         }
 

@@ -5,6 +5,7 @@ import com.codingapi.filter.core.interceptor.handler.FilterExceptionHandler;
 import com.codingapi.filter.core.model.ExcepModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.Base64Utils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,7 +32,7 @@ public class DefFilterExceptionHandler implements FilterExceptionHandler{
             String msg = e.getMessage();
             String className = e.getClass().getName();
             ExcepModel excepModel = new ExcepModel(localizedMessage, msg, className);
-            response.setHeader(Constants.exceptionHeader, excepModel.toJsonString());
+            response.setHeader(Constants.exceptionHeader, Base64Utils.encodeToString(excepModel.toJsonString().getBytes()));
         }
         logger.debug("exceptionHandler->" + e + ",handler->" + handler);
 

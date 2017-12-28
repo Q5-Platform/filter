@@ -17,7 +17,7 @@ public class DemoController {
 //    @FilterResponse
     public Demo hello() throws ServiceException{
 //        Demo demo = new Demo();
-//        demo.setName("hello");
+//        demo.setName("hello小明");
 //        return demo;
 
        throw new ServiceException("x休息休息");
