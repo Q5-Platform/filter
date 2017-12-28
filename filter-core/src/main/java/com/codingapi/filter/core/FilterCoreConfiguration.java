@@ -8,5 +8,6 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ComponentScan
-public class FilterConfiguration {
+public class FilterCoreConfiguration {
+
 }

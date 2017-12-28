@@ -40,6 +40,18 @@
             </exclusions>
         </dependency>
 
+        <dependency>
+            <groupId>com.codingapi</groupId>
+            <artifactId>filter-token</artifactId>
+            <version>1.0.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
