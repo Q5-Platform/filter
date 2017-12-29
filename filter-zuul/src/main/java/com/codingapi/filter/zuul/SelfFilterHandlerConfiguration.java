@@ -1,8 +1,11 @@
-package com.codingapi.filter.zuul.handler.self;
+package com.codingapi.filter.zuul;
 
 import com.codingapi.filter.core.interceptor.handler.FilterDataResponseHandler;
 import com.codingapi.filter.core.interceptor.handler.FilterExceptionHandler;
 import com.codingapi.filter.core.interceptor.handler.FilterPreResponseHandler;
+import com.codingapi.filter.zuul.handler.self.SelfZuulFilterDataResponseHandler;
+import com.codingapi.filter.zuul.handler.self.SelfZuulFilterExceptionHandler;
+import com.codingapi.filter.zuul.handler.self.SelfZuulFilterPreResponseHandler;
 import org.springframework.context.annotation.Bean;
 
 /**

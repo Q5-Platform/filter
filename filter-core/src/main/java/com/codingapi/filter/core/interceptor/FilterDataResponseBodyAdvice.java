@@ -1,9 +1,7 @@
 package com.codingapi.filter.core.interceptor;
 
 import com.codingapi.filter.core.interceptor.handler.FilterDataResponseHandler;
-import com.codingapi.filter.core.interceptor.handler.def.DefFilterDataResponseHandler;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.server.ServerHttpRequest;
@@ -19,20 +17,9 @@ public class FilterDataResponseBodyAdvice implements ResponseBodyAdvice{
 
 
     @Autowired
-    private ApplicationContext applicationContext;
-
     private FilterDataResponseHandler filterDataResponseHandler;
 
     public boolean supports(MethodParameter returnType, Class converterType) {
-
-        if(filterDataResponseHandler==null) {
-            try {
-                filterDataResponseHandler = applicationContext.getBean(FilterDataResponseHandler.class);
-            } catch (Exception e) {
-                filterDataResponseHandler = new DefFilterDataResponseHandler();
-            }
-        }
-
         return filterDataResponseHandler.supports(returnType, converterType);
     }
 
