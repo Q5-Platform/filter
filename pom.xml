@@ -17,7 +17,8 @@
         <module>filter-token</module>
         <module>filter-token-server</module>
 
-        <module>filter-demo</module>
+        <module>filter-demo-client</module>
+        <module>filter-demo-server</module>
     </modules>
 
     <properties>

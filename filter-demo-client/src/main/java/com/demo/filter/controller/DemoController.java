@@ -1,8 +1,8 @@
 package com.demo.filter.controller;
 
-import com.codingapi.filter.core.annotation.FilterResponse;
 import com.demo.filter.model.Demo;
-import com.lorne.core.framework.exception.ServiceException;
+import com.demo.filter.mq.DemoClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,13 +13,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/demo")
 public class DemoController {
 
-    @RequestMapping("/hello")
-//    @FilterResponse
-    public Demo hello() throws ServiceException{
-//        Demo demo = new Demo();
-//        demo.setName("hello小明");
-//        return demo;
 
-       throw new ServiceException("x休息休息");
+    @Autowired
+    private DemoClient demoClient;
+
+    @RequestMapping("/hello")
+    public Demo hello() {
+
+        Demo demo = new Demo();
+        demo.setName(demoClient.hello());
+        return demo;
+
     }
 }

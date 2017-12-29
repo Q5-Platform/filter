@@ -1,10 +1,11 @@
 package com.demo.filter;
 
 //import com.codingapi.filter.zuul.handler.FilterHandlerConfiguration;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.context.annotation.Import;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
 
 /**
  * Created by lorne on 2017/7/8.
@@ -12,12 +13,13 @@ import org.springframework.context.annotation.Import;
 
 
 @SpringBootApplication
-@EnableDiscoveryClient
+@EnableFeignClients
+@EnableEurekaClient
 //@Import({ FilterHandlerConfiguration.class})
-public class DemoApplication {
+public class DemoClientApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
+        SpringApplication.run(DemoClientApplication.class, args);
     }
 
 }
