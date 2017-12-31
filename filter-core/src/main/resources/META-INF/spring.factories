@@ -1,1 +1,1 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.codingapi.filter.core.FilterCoreConfiguration,com.codingapi.filter.core.DefFilterHandlerConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.codingapi.filter.core.FilterCoreConfiguration
