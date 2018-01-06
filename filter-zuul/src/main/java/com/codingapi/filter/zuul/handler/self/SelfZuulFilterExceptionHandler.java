@@ -1,6 +1,8 @@
 package com.codingapi.filter.zuul.handler.self;
 
 import com.codingapi.filter.core.Constants;
+import com.codingapi.filter.core.code.ProtocolState;
+import com.codingapi.filter.core.exception.FilterException;
 import com.codingapi.filter.core.interceptor.handler.FilterExceptionHandler;
 import com.codingapi.filter.zuul.model.Msg;
 import com.codingapi.filter.zuul.model.Response;
@@ -34,15 +36,20 @@ public class SelfZuulFilterExceptionHandler implements FilterExceptionHandler{
             response.getWriter().close();
 
         } else {
-            Response res = new Response();
+
             Msg msg = new Msg();
-            res.setCode(40010);
             msg.setMsg("");
 
+            Response res = new Response();
             if(e instanceof ServiceException){
                 ServiceException serviceException = (ServiceException) e;
                 res.setMsg(serviceException.getMessage());
+            }else if(e instanceof FilterException){
+                FilterException filterException = (FilterException) e;
+                res.setMsg(filterException.getMessage());
+                res.setCode(filterException.getCode());
             }else{
+                res.setCode(ProtocolState.getInstance().getCode(ProtocolState.PROTOCOL_SERVER_ERROR_KEY));
                 res.setMsg(e.getMessage());
             }
 

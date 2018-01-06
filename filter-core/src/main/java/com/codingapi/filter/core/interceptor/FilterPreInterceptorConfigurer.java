@@ -28,7 +28,7 @@ public class FilterPreInterceptorConfigurer extends WebMvcConfigurerAdapter {
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         super.configureMessageConverters(converters);
-        converters.add(0, new MappingJackson2HttpMessageConverter());
+//        converters.add(0, new MappingJackson2HttpMessageConverter());
     }
 
 

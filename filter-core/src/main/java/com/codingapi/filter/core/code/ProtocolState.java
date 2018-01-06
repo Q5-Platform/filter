@@ -23,6 +23,11 @@ public final class ProtocolState {
     public static final String PROTOCOL_SUCCESS_KEY = "PROTOCOL_SUCCESS";//协议正常
     public static final int PROTOCOL_SUCCESS_VAL = 40000;//协议正常
 
+
+    public static final String PROTOCOL_SERVER_ERROR_KEY = "PROTOCOL_SERVER_ERROR_KEY";//服务器业务异常
+    public static final int PROTOCOL_SERVER_ERROR_VAL = 41000;//协议正常
+
+
     private static ProtocolState filterState;
 
     public static ProtocolState getInstance() {
@@ -50,6 +55,8 @@ public final class ProtocolState {
 
         map.put(PROTOCOL_REFUSE_KEY,PROTOCOL_REFUSE_VAL);
         map.put(PROTOCOL_SUCCESS_KEY,PROTOCOL_SUCCESS_VAL);
+
+        map.put(PROTOCOL_SERVER_ERROR_KEY,PROTOCOL_SERVER_ERROR_VAL);
 
     }
 
