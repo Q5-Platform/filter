@@ -4,6 +4,7 @@ import com.codingapi.filter.core.Constants;
 import com.codingapi.filter.core.interceptor.handler.FilterExceptionHandler;
 import com.codingapi.filter.zuul.model.Msg;
 import com.codingapi.filter.zuul.model.Response;
+import com.lorne.core.framework.exception.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,11 +36,15 @@ public class SelfZuulFilterExceptionHandler implements FilterExceptionHandler{
         } else {
             Response res = new Response();
             Msg msg = new Msg();
-
             res.setCode(40010);
-            res.setMsg(e.getLocalizedMessage());
-            res.setData(e.getMessage());
-            msg.setMsg("业务模块异常");
+            msg.setMsg("");
+
+            if(e instanceof ServiceException){
+                ServiceException serviceException = (ServiceException) e;
+                res.setMsg(serviceException.getMessage());
+            }else{
+                res.setMsg(e.getMessage());
+            }
 
             msg.setState(1);
             msg.setRes(res);
