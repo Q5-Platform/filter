@@ -8,6 +8,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 public interface FilterExceptionHandler {
 
-    void  exceptionHandler(HttpServletRequest request, HttpServletResponse response,
-                           Object handler, Exception e) throws Exception;
+    void   exceptionHandler(HttpServletRequest request, HttpServletResponse response,
+                           Object handler, Exception e) throws Throwable;
 }

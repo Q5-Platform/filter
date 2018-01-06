@@ -20,8 +20,10 @@ public class DefFilterExceptionHandler implements FilterExceptionHandler{
 
 
 
-    public void  exceptionHandler(HttpServletRequest request, HttpServletResponse response,
-                                  Object handler, Exception e) throws Exception {
+    public void exceptionHandler(HttpServletRequest request, HttpServletResponse response,
+                                  Object handler, Exception e) throws Throwable {
+
+        logger.debug("exceptionHandler->" + e + ",handler->" + handler);
 
         logger.debug("getAttribute -> " + request.getAttribute(Constants.defaultResponseHeader));
         if (Constants.defaultResponseHeader.equals(request.getAttribute(Constants.defaultResponseHeader))) {
@@ -34,9 +36,6 @@ public class DefFilterExceptionHandler implements FilterExceptionHandler{
             ExcepModel excepModel = new ExcepModel(localizedMessage, msg, className);
             response.setHeader(Constants.exceptionHeader, Base64Utils.encodeToString(excepModel.toJsonString().getBytes()));
         }
-        logger.debug("exceptionHandler->" + e + ",handler->" + handler);
-
-        throw e;
 
     }
 

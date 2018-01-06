@@ -21,16 +21,18 @@ public class SelfZuulFilterExceptionHandler implements FilterExceptionHandler{
 
 
     @ExceptionHandler(value = Exception.class)
-    public void  exceptionHandler(HttpServletRequest request, HttpServletResponse response,
-                                  Object handler, Exception e) throws Exception {
+    public void   exceptionHandler(HttpServletRequest request, HttpServletResponse response,
+                                  Object handler, Exception e) throws Throwable {
 
+        logger.debug("exceptionHandler->" + e + ",handler->" + handler);
         logger.debug("getAttribute -> " + request.getAttribute(Constants.defaultResponseHeader));
 
         if (Constants.defaultResponseHeader.equals(request.getAttribute(Constants.defaultResponseHeader))) {
-            throw e;
-        } else {
-            logger.debug("exceptionHandler->" + e + ",handler->" + handler);
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            e.printStackTrace(response.getWriter());
+            response.getWriter().close();
 
+        } else {
             Response res = new Response();
             Msg msg = new Msg();
 
@@ -42,14 +44,12 @@ public class SelfZuulFilterExceptionHandler implements FilterExceptionHandler{
             msg.setState(1);
             msg.setRes(res);
 
-
             response.setContentType("text/html;charset=utf-8");
             response.setHeader("Content-type",
                     "application/json;charset=utf-8");
             response.getWriter().print(msg.toJsonString());
             response.getWriter().close();
         }
-
     }
 
 

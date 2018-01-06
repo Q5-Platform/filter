@@ -1,6 +1,8 @@
 package com.codingapi.filter.zuul.handler.self;
 
+import com.codingapi.filter.core.Constants;
 import com.codingapi.filter.core.interceptor.handler.FilterPreResponseHandler;
+import com.codingapi.filter.core.interceptor.handler.def.DefFilterPreResponseHandler;
 import com.codingapi.filter.zuul.exception.VerificationException;
 import com.codingapi.filter.zuul.service.PreRequestVerificationService;
 import org.slf4j.Logger;
@@ -22,6 +24,7 @@ public class SelfZuulFilterPreResponseHandler implements FilterPreResponseHandle
 
     private final static String ERROR_MSG_FORMAT =  "{ \"res\": { \"code\": 40010 , \"msg\" : \"%s\"},\"state\": 1}";
 
+    private DefFilterPreResponseHandler defFilterPreResponseHandler = new DefFilterPreResponseHandler();
 
     private Logger logger = LoggerFactory.getLogger(SelfZuulFilterPreResponseHandler.class);
 
@@ -35,7 +38,9 @@ public class SelfZuulFilterPreResponseHandler implements FilterPreResponseHandle
         logger.debug(String.format("send %s request to %s", request.getMethod(),fullUrl));
         try {
             requestVerificationService.execute(request,url);
-            return true;
+
+            return defFilterPreResponseHandler.preHandle(request, response, handler);
+
         } catch (VerificationException e) {
             logger.error(e.getMessage());
 

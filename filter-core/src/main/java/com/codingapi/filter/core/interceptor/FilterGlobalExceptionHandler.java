@@ -19,9 +19,8 @@ public class FilterGlobalExceptionHandler {
     private FilterExceptionHandler filterExceptionHandler;
 
     @ExceptionHandler(value = Exception.class)
-    public void  exceptionHandler(HttpServletRequest request, HttpServletResponse response,
-                                  Object handler, Exception e) throws Exception {
-
+    public void   exceptionHandler(HttpServletRequest request, HttpServletResponse response,
+                                  Object handler, Exception e) throws Throwable {
         filterExceptionHandler.exceptionHandler(request, response, handler, e);
     }
 
