@@ -18,4 +18,8 @@ public class Constants {
 
 
 
+    /**
+     * 响应数据头
+     */
+    public static final String responseHeader =  "filter-erh";
 }

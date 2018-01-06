@@ -5,6 +5,7 @@ import com.codingapi.filter.core.interceptor.handler.FilterPreResponseHandler;
 import com.codingapi.filter.core.interceptor.handler.def.DefFilterPreResponseHandler;
 import com.codingapi.filter.zuul.exception.VerificationException;
 import com.codingapi.filter.zuul.service.PreRequestVerificationService;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,8 +69,14 @@ public class SelfZuulFilterPreResponseHandler implements FilterPreResponseHandle
                                 HttpServletResponse response,
                                 Object handler, Exception ex) throws Exception {
 
-
-
+        String res =  response.getHeader(Constants.responseHeader);
+        if(StringUtils.isNotEmpty(res)){
+            response.setContentType("text/html;charset=utf-8");
+            response.setHeader("Content-type",
+                    "application/json;charset=utf-8");
+            response.getWriter().print(res);
+            response.getWriter().close();
+        }
     }
 
 

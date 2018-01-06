@@ -1,6 +1,5 @@
 package com.codingapi.filter.zuul.model;
 
-import com.alibaba.fastjson.JSONObject;
 import com.lorne.core.framework.Code;
 
 /**
@@ -94,9 +93,5 @@ public class Response {
 
     public void setData(Object data) {
         this.data = data;
-    }
-
-    public String toJsonString() {
-        return JSONObject.toJSONString(this);
     }
 }

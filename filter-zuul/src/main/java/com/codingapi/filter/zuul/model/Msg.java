@@ -10,7 +10,7 @@ public class Msg {
 
     private int state;
     private String msg;
-    private Object res;
+    private Response res;
 
     public Msg() {
     }
@@ -23,7 +23,7 @@ public class Msg {
         this.msg = msg;
     }
 
-    public Msg(int state, Object res) {
+    public Msg(int state, Response res) {
         super();
         this.state = state;
         this.res = res;
@@ -42,11 +42,11 @@ public class Msg {
         this.state = state;
     }
 
-    public Object getRes() {
+    public Response getRes() {
         return res;
     }
 
-    public void setRes(Object res) {
+    public void setRes(Response res) {
         this.res = res;
     }
 
