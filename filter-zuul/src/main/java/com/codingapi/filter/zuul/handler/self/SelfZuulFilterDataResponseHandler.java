@@ -6,6 +6,8 @@ import com.codingapi.filter.zuul.model.Msg;
 import com.codingapi.filter.zuul.model.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.server.ServerHttpRequest;
@@ -19,9 +21,27 @@ public class SelfZuulFilterDataResponseHandler implements FilterDataResponseHand
 
     private static Logger logger = LoggerFactory.getLogger(SelfZuulFilterDataResponseHandler.class);
 
+    private ISelfZuulFilterDataResponseHandlerSupport selfZuulFilterDataResponseHandlerSupport;
+
+    @Autowired
+    private ApplicationContext spring;
 
     public boolean supports(MethodParameter returnType, Class converterType) {
-        return true;
+
+        if(selfZuulFilterDataResponseHandlerSupport==null) {
+            try {
+                selfZuulFilterDataResponseHandlerSupport = spring.getBean(ISelfZuulFilterDataResponseHandlerSupport.class);
+            } catch (Exception e) {
+                selfZuulFilterDataResponseHandlerSupport = new ISelfZuulFilterDataResponseHandlerSupport() {
+                    @Override
+                    public boolean supports(MethodParameter returnType, Class converterType) {
+                        return true;
+                    }
+                };
+            }
+        }
+
+        return selfZuulFilterDataResponseHandlerSupport.supports(returnType, converterType);
     }
 
     public Object beforeBodyWrite(Object body, MethodParameter returnType,
